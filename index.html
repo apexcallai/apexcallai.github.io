@@ -583,59 +583,6 @@
       box-shadow: 0 0 0 1.5px rgba(0,229,255,0.55), 0 0 36px rgba(0,229,255,0.08), var(--shadow-soft);
     }
 
-    .price-value.animating,
-    .price-billing.animating {
-      animation: priceSwap 260ms ease;
-    }
-
-    @keyframes priceSwap {
-      0% { opacity: 0; transform: translateY(8px); filter: blur(8px); }
-      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-    }
-
-    .toggle-pill {
-      position: relative;
-      display: inline-grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.25rem;
-      padding: 0.3rem;
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .toggle-pill button {
-      position: relative;
-      z-index: 1;
-      border: 0;
-      background: transparent;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.92rem;
-      font-weight: 500;
-      border-radius: 9999px;
-      padding: 0.72rem 1.05rem;
-      transition: color 180ms ease;
-    }
-
-    .toggle-pill .toggle-thumb {
-      position: absolute;
-      inset: 0.3rem auto 0.3rem 0.3rem;
-      width: calc(50% - 0.3rem);
-      border-radius: 9999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.16);
-      transition: transform 220ms ease;
-    }
-
-    .toggle-pill[data-mode="annual"] .toggle-thumb {
-      transform: translateX(100%);
-    }
-
-    .toggle-pill[data-mode="monthly"] button[data-mode="monthly"],
-    .toggle-pill[data-mode="annual"] button[data-mode="annual"] {
-      color: #FFFFFF;
-    }
-
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -1325,38 +1272,38 @@
         <div class="mx-auto max-w-3xl text-center reveal">
           <p class="mb-4 text-sm uppercase tracking-[0.28em] text-white/50">Pricing</p>
           <h2 class="heading-display text-[clamp(3rem,6vw,4.75rem)] text-white">Simple Pricing. Serious Results.</h2>
-          <p class="mt-5 text-lg font-light text-white/70">One recovered patient pays for the whole month. Annual plans give you two months free.</p>
-        </div>
-
-        <div class="mt-10 flex justify-center reveal" style="--reveal-delay: 110ms;">
-          <div id="pricing-toggle" class="toggle-pill" data-mode="monthly">
-            <span class="toggle-thumb"></span>
-            <button type="button" data-mode="monthly">Monthly</button>
-            <button type="button" data-mode="annual">Annual</button>
-          </div>
+          <p class="mt-5 text-lg font-light text-white/70">One recovered patient pays for the whole month. No hidden fees, no surprises.</p>
         </div>
 
         <div class="mt-12 grid gap-6 xl:grid-cols-3">
           <article class="pricing-card liquid-glass reveal rounded-[1.75rem] p-6" style="--reveal-delay: 80ms;">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-[0.25em] text-white/50">Starter</p>
-                <h3 class="mt-3 text-3xl font-display italic tracking-tight text-white">After-hours coverage</h3>
-              </div>
-              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/65">1,000 min</span>
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-white/50">The Starter Plan</p>
+              <p class="mt-2 text-sm font-light leading-6 text-white/60">Best for smaller clinics looking for after-hours, weekend, and lunch-break coverage.</p>
             </div>
-            <div class="mt-8">
-              <p class="price-value text-5xl font-semibold tracking-tight text-white" data-monthly-price="£297" data-annual-price="£248">£297</p>
-              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50" data-monthly-billing="billed monthly" data-annual-billing="£2,970 billed yearly">billed monthly</p>
+            <div class="mt-6">
+              <p class="price-value text-5xl font-semibold tracking-tight text-white">£297</p>
+              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50">/ month</p>
             </div>
-            <p class="mt-4 text-sm font-light text-white/60">After-hours call answering from 6pm to 8am, weekends included, and £0.25/min overage after your allowance.</p>
-            <ul class="mt-8 space-y-3 text-sm font-light leading-7 text-white/75">
-              <li>After-hours call answering</li>
-              <li>Appointment booking</li>
-              <li>New patient capture</li>
-              <li>Weekly report</li>
-              <li>Up to 1,000 minutes included</li>
-              <li>Email support</li>
+            <div class="mt-4 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-center text-sm text-white/70">
+              1,000 Included Minutes
+            </div>
+            <ul class="mt-6 space-y-3 text-sm font-light leading-7 text-white/75">
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                After-hours &amp; weekend answering
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Emergency triage routing
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Direct calendar booking
+              </li>
+              <li class="flex items-center gap-3 pt-2 text-xs uppercase tracking-[0.2em] text-white/45">
+                <span>£0.35 per additional minute</span>
+              </li>
             </ul>
             <button type="button" class="button-core liquid-glass-strong mt-8 w-full justify-center border border-white/10 text-white" data-calendly-open>
               <span>Book a Demo</span>
@@ -1367,28 +1314,34 @@
           </article>
 
           <article class="pricing-card popular liquid-glass reveal rounded-[1.75rem] p-6" style="--reveal-delay: 150ms;">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <span class="rounded-full border border-apexCyan/30 bg-apexCyan/10 px-3 py-2 text-xs uppercase tracking-[0.22em] text-apexCyan">Most Popular</span>
-                <p class="mt-4 text-xs uppercase tracking-[0.25em] text-white/50">Growth</p>
-                <h3 class="mt-3 text-3xl font-display italic tracking-tight text-white">24/7 full coverage</h3>
-              </div>
-              <span class="rounded-full border border-apexCyan/20 bg-apexCyan/10 px-3 py-2 text-xs uppercase tracking-[0.22em] text-apexCyan">3,000 min</span>
+            <div>
+              <span class="rounded-full border border-apexCyan/30 bg-apexCyan/10 px-3 py-2 text-xs uppercase tracking-[0.22em] text-apexCyan">Most Popular</span>
+              <p class="mt-4 text-xs uppercase tracking-[0.25em] text-white/50">The Growth Plan</p>
+              <p class="mt-2 text-sm font-light leading-6 text-white/60">Best for busy practices that need a 24/7 primary overflow receptionist to eliminate hold times.</p>
             </div>
-            <div class="mt-8">
-              <p class="price-value text-5xl font-semibold tracking-tight text-white" data-monthly-price="£597" data-annual-price="£498">£597</p>
-              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50" data-monthly-billing="billed monthly" data-annual-billing="£5,970 billed yearly">billed monthly</p>
+            <div class="mt-6">
+              <p class="price-value text-5xl font-semibold tracking-tight text-white">£597</p>
+              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50">/ month</p>
             </div>
-            <p class="mt-4 text-sm font-light text-white/60">Everything in Starter, 24/7 call handling, emergency triage, and £0.30/min overage if you outgrow the included minutes.</p>
-            <ul class="mt-8 space-y-3 text-sm font-light leading-7 text-white/75">
-              <li>Everything in Starter</li>
-              <li>24/7 call answering</li>
-              <li>Emergency triage</li>
-              <li>Rescheduling and cancellations</li>
-              <li>CRM integration</li>
-              <li>Call recordings dashboard</li>
-              <li>Up to 3,000 minutes included</li>
-              <li>Priority support</li>
+            <div class="mt-4 rounded-full border border-apexCyan/20 bg-apexCyan/10 px-4 py-2 text-center text-sm text-apexCyan">
+              3,000 Included Minutes
+            </div>
+            <ul class="mt-6 space-y-3 text-sm font-light leading-7 text-white/75">
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                24/7 Full coverage answering
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Handles multiple calls simultaneously
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                SMS appointment confirmations
+              </li>
+              <li class="flex items-center gap-3 pt-2 text-xs uppercase tracking-[0.2em] text-white/45">
+                <span>£0.30 per additional minute</span>
+              </li>
             </ul>
             <button type="button" class="button-core liquid-glass-strong glass-button-accent mt-8 w-full justify-center border border-apexCyan/20 text-white" data-calendly-open>
               <span>Book a Demo</span>
@@ -1399,29 +1352,36 @@
           </article>
 
           <article class="pricing-card liquid-glass reveal rounded-[1.75rem] p-6" style="--reveal-delay: 220ms;">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="text-xs uppercase tracking-[0.25em] text-white/50">Practice Plus</p>
-                <h3 class="mt-3 text-3xl font-display italic tracking-tight text-white">Multi-location &amp; high volume</h3>
-              </div>
-              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/65">8,000 min</span>
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-white/50">The Practice Plus Plan</p>
+              <p class="mt-2 text-sm font-light leading-6 text-white/60">Best for high-volume clinics, multi-location practices, or those running heavy ad campaigns.</p>
             </div>
-            <div class="mt-8">
-              <p class="price-value text-5xl font-semibold tracking-tight text-white" data-monthly-price="£997" data-annual-price="£831">£997</p>
-              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50" data-monthly-billing="billed monthly" data-annual-billing="£9,970 billed yearly">billed monthly</p>
+            <div class="mt-6">
+              <p class="price-value text-5xl font-semibold tracking-tight text-white">£997</p>
+              <p class="price-billing mt-3 text-sm uppercase tracking-[0.22em] text-white/50">/ month</p>
             </div>
-            <p class="mt-4 text-sm font-light text-white/60">Everything in Growth plus outbound recall, multi-site routing, and £0.35/min overage when your call volume spikes.</p>
-            <ul class="mt-8 space-y-3 text-sm font-light leading-7 text-white/75">
-              <li>Everything in Growth</li>
-              <li>Up to 3 clinic locations</li>
-              <li>Outbound patient recall campaigns</li>
-              <li>Custom integrations</li>
-              <li>Dedicated account manager</li>
-              <li>Up to 8,000 minutes included</li>
-              <li>Unlimited scale planning</li>
+            <div class="mt-4 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-center text-sm text-white/70">
+              5,500 Included Minutes
+            </div>
+            <ul class="mt-6 space-y-3 text-sm font-light leading-7 text-white/75">
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Multi-location routing
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Priority technical support
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="h-4 w-4 flex-shrink-0 text-apexCyan" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12L10 17L19 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Custom workflow automations
+              </li>
+              <li class="flex items-center gap-3 pt-2 text-xs uppercase tracking-[0.2em] text-white/45">
+                <span>£0.25 per additional minute</span>
+              </li>
             </ul>
             <button type="button" class="button-core liquid-glass-strong mt-8 w-full justify-center border border-white/10 text-white" data-calendly-open>
-              <span>Contact Us</span>
+              <span>Book a Demo</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12H19M19 12L12.75 5.75M19 12L12.75 18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -1429,9 +1389,33 @@
           </article>
         </div>
 
-        <div class="mt-8 text-center reveal" style="--reveal-delay: 280ms;">
-          <p class="text-sm font-light leading-7 text-white/60">No credit card required. A 200-minute onboarding cap keeps your rollout fast and risk-free.</p>
-          <p class="mt-2 text-sm font-light leading-7 text-white/45">Need custom onboarding or bespoke integration work? White-glove setup starts at £249.</p>
+        <div class="mt-12 reveal" style="--reveal-delay: 280ms;">
+          <div class="rounded-[1.75rem] border border-white/10 bg-white/[0.02] p-6 md:p-8">
+            <p class="mb-8 text-center text-sm uppercase tracking-[0.28em] text-white/50">All Plans Include</p>
+            <div class="grid gap-8 md:grid-cols-3">
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-apexCyan/10 text-apexCyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.75L19.25 7.5V12.5C19.25 16.75 16.3 20.63 12 21.75C7.7 20.63 4.75 16.75 4.75 12.5V7.5L12 3.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+                </div>
+                <h4 class="text-base font-medium text-white">Custom Clinic Knowledge Base</h4>
+                <p class="mt-2 text-sm font-light leading-6 text-white/60">"Sarah" learns your exact procedures, accepted insurances, and office policies.</p>
+              </div>
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-apexCyan/10 text-apexCyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.25 4.75H14.75L20.25 10.25V19.25H3.75V10.25L9.25 4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.75 14.75H14.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </div>
+                <h4 class="text-base font-medium text-white">Zero Lock-In</h4>
+                <p class="mt-2 text-sm font-light leading-6 text-white/60">We operate strictly month-to-month. We keep your business by delivering results, not with a contract.</p>
+              </div>
+              <div class="text-center">
+                <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-apexCyan/10 text-apexCyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.75 8.5L12 4.75L19.25 8.5V15.5L12 19.25L4.75 15.5V8.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 9.5L12 11.5L15.5 9.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 11.5V15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </div>
+                <h4 class="text-base font-medium text-white">Seamless Integration</h4>
+                <p class="mt-2 text-sm font-light leading-6 text-white/60">Works perfectly with your existing phone systems via conditional call forwarding.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1958,10 +1942,6 @@
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const mobileMenuClose = document.getElementById("mobile-menu-close");
-    const pricingToggle = document.getElementById("pricing-toggle");
-    const pricingValueEls = Array.from(document.querySelectorAll(".price-value"));
-    const pricingBillingEls = Array.from(document.querySelectorAll(".price-billing"));
-
     function formatCurrency(value) {
       return new Intl.NumberFormat("en-GB", {
         style: "currency",
@@ -2122,27 +2102,6 @@
       document.getElementById(id).addEventListener("input", updateRoi);
     });
     updateRoi();
-
-    pricingToggle.querySelectorAll("button").forEach(function(button) {
-      button.addEventListener("click", function() {
-        const mode = button.dataset.mode;
-        pricingToggle.dataset.mode = mode;
-
-        pricingValueEls.forEach(function(element) {
-          element.classList.remove("animating");
-          void element.offsetWidth;
-          element.textContent = mode === "annual" ? element.dataset.annualPrice : element.dataset.monthlyPrice;
-          element.classList.add("animating");
-        });
-
-        pricingBillingEls.forEach(function(element) {
-          element.classList.remove("animating");
-          void element.offsetWidth;
-          element.textContent = mode === "annual" ? element.dataset.annualBilling : element.dataset.monthlyBilling;
-          element.classList.add("animating");
-        });
-      });
-    });
 
     document.querySelectorAll(".faq-item").forEach(function(item) {
       const trigger = item.querySelector(".faq-trigger");
