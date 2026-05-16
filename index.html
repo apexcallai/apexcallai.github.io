@@ -133,11 +133,13 @@
       pointer-events: none;
     }
 
-    #privacy-modal .modal-panel {
+    #privacy-modal .modal-panel,
+    #terms-modal .modal-panel {
       overflow: visible;
     }
 
-    #privacy-modal .content-wrap {
+    #privacy-modal .content-wrap,
+    #terms-modal .content-wrap {
       padding-bottom: 32px;
     }
 
@@ -1759,7 +1761,7 @@
         <p>© 2026 ApexCall AI. Never miss a patient again.</p>
         <div class="flex flex-wrap items-center gap-4">
           <a href="#" data-privacy-open class="transition hover:text-white">Privacy Policy</a>
-          <a href="mailto:apexcallai@gmail.com?subject=Terms%20of%20Service" class="transition hover:text-white">Terms of Service</a>
+          <a href="#" data-terms-open class="transition hover:text-white">Terms of Service</a>
           <span>Valencia, Spain. Serving clinics across the UK.</span>
         </div>
       </div>
@@ -1843,6 +1845,32 @@
         <p class="mt-4">5. Data Retention & Security. We do not act as an Electronic Health Record (EHR) system. Patient data is passed to the clinic's systems via secure webhooks. We retain temporary call logs and transcripts only as long as necessary to ensure service quality and billing accuracy, after which they are securely deleted.</p>
         <p class="mt-4">6. Your GDPR Rights. Under UK and EU law, you have the right to access, correct, or delete your personal data. Clinics are considered the "Data Controllers" of their patients' data, and ApexCall AI acts as the "Data Processor." We will assist our Clients in fulfilling any patient data requests.</p>
         <p class="mt-4">7. Contact Us. For any privacy-related questions, please contact us at apexcallai@gmail.com.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="terms-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-panel liquid-glass-strong">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <p class="text-xs uppercase tracking-[0.22em] text-white/45">Terms</p>
+          <h3 class="mt-2 text-2xl font-display italic text-white">Terms of Service</h3>
+        </div>
+        <button type="button" class="liquid-glass inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10" data-modal-close="terms" aria-label="Close terms of service">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6L18 18M18 6L6 18" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 text-sm font-light leading-7 text-white/70 content-wrap" style="overflow-wrap: break-word; word-break: break-word;">
+        <p>Effective Date: May 16, 2026. Company: ApexCall AI</p>
+        <p class="mt-4">1. Acceptance of Terms. By accessing our website or using the ApexCall AI service, you ("Client" or "Clinic") agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+        <p class="mt-4">2. Description of Service. ApexCall AI provides artificial intelligence voice agents designed to act as virtual receptionists for dental clinics. The service includes call answering, emergency triage routing, and appointment scheduling via integration with the Client's calendar or CRM.</p>
+        <p class="mt-4">3. Billing, Overages, and Subscriptions. Monthly Subscription: Services are billed month-to-month automatically via our payment processor. Overage Billing: If your clinic exceeds the included minutes in your tier, the AI agent will continue to operate. Overage minutes are tracked by the second (active talk time only) and billed in arrears on your next monthly invoice at your plan's designated rate. Refunds: Due to the hard costs associated with telecommunications and AI processing, we do not offer prorated refunds for partially used months or unused minutes.</p>
+        <p class="mt-4">4. Cancellation Policy. We operate with zero lock-in contracts. You may cancel your service at any time by providing a 14-day written notice prior to your next billing date. Upon cancellation, the AI agent will be deactivated, and any provided phone numbers will be released.</p>
+        <p class="mt-4">5. Medical Liability Disclaimer. No Medical Advice: Our AI agents are administrative tools, not clinicians. They are programmed with strict guardrails prohibiting them from diagnosing conditions, prescribing medications, or offering medical advice. Clinic Responsibility: The Client holds ultimate responsibility for verifying appointment details, assessing patient emergencies upon arrival, and confirming final insurance coverage and procedure pricing. ApexCall AI is not liable for clinical outcomes, patient care, or disputes arising from patient misunderstandings.</p>
+        <p class="mt-4">6. Service Uptime & Availability. We rely on enterprise-grade telecom providers and AI infrastructure. While we strive for 99.9% uptime, we cannot guarantee zero downtime due to third-party network outages. In the event of an outage, calls will automatically fall back to your default clinic voicemail.</p>
+        <p class="mt-4">7. Governing Law. These Terms shall be governed by and construed in accordance with the laws of Spain, with consideration to UK business regulations where applicable to our UK clients.</p>
       </div>
     </div>
   </div>
@@ -2059,6 +2087,7 @@
     const calendlyModal = document.getElementById("calendly-modal");
     const videoModal = document.getElementById("video-modal");
     const privacyModal = document.getElementById("privacy-modal");
+    const termsModal = document.getElementById("terms-modal");
     const demoVideoUrl = "https://youtu.be/Sbraau1bSpQ?si=LQhpY675r1XQ8MJi";
     const navShell = document.getElementById("nav-shell");
     const navDemoButton = document.getElementById("nav-demo-button");
@@ -2074,7 +2103,7 @@
     }
 
     function toggleBodyLock() {
-      const anyModalOpen = calendlyModal.classList.contains("open") || videoModal.classList.contains("open") || privacyModal.classList.contains("open") || mobileMenu.classList.contains("open");
+      const anyModalOpen = calendlyModal.classList.contains("open") || videoModal.classList.contains("open") || privacyModal.classList.contains("open") || termsModal.classList.contains("open") || mobileMenu.classList.contains("open");
       document.body.classList.toggle("modal-open", anyModalOpen);
     }
 
@@ -2103,10 +2132,21 @@
       openModal(privacyModal);
     };
 
+    window.openTermsModal = function openTermsModal() {
+      openModal(termsModal);
+    };
+
     document.querySelectorAll("[data-privacy-open]").forEach(function(link) {
       link.addEventListener("click", function(event) {
         event.preventDefault();
         window.openPrivacyModal();
+      });
+    });
+
+    document.querySelectorAll("[data-terms-open]").forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.openTermsModal();
       });
     });
 
@@ -2146,6 +2186,12 @@
       });
     });
 
+    document.querySelectorAll("[data-modal-close='terms']").forEach(function(button) {
+      button.addEventListener("click", function() {
+        closeModal(termsModal);
+      });
+    });
+
     videoModal.addEventListener("click", function(event) {
       if (event.target === videoModal) {
         closeModal(videoModal);
@@ -2164,11 +2210,18 @@
       }
     });
 
+    termsModal.addEventListener("click", function(event) {
+      if (event.target === termsModal) {
+        closeModal(termsModal);
+      }
+    });
+
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
         closeModal(videoModal);
         closeModal(calendlyModal);
         closeModal(privacyModal);
+        closeModal(termsModal);
         closeMobileMenu();
       }
     });
